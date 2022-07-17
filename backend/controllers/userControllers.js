@@ -34,9 +34,7 @@ module.exports.addUser = (req, res, next) => {
       email,
       password: hash,
     }))
-    .then((user) => res.status(201).send(
-      user.toJSON(),
-    ))
+    .then((user) => res.status(201).send(user.toJSON()))
     .catch(next);
 };
 
@@ -94,13 +92,13 @@ module.exports.login = (req, res, next) => {
           if (!matching) {
             throw new BadAuthError('Неправильный логин или пароль');
           }
-          const token = jwt.sign({ _id: user._id }, 'mesto-key');
-          res
-            .status(200)
-            .cookie('jwt', token, {
-              httpOnly: true,
-            })
-            .send({ message: 'Авторизация успешна' });
+          const token = jwt.sign(
+            { _id: user._id },
+            process.env.NODE_ENV === 'production'
+              ? process.env.JWT_SECRET
+              : 'mesto-key',
+          );
+          res.status(200).send({ token });
         })
         .catch(next);
     })
