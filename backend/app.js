@@ -44,6 +44,13 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(corsHandler);
 app.use(requestLogger);
 
+/* КРАШ-ТЕСТ */
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 /* LOGIN */
 app.post(
   '/signin',
