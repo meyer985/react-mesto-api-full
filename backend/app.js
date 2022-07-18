@@ -31,6 +31,8 @@ const corsOptions = {
     'http://localhost:3000',
     'http://front15meyer985.nomoredomains.xyz',
     'http://www.front15meyer985.nomoredomains.xyz',
+    'https://front15meyer985.nomoredomains.xyz',
+    'https://www.front15meyer985.nomoredomains.xyz',
   ],
   credentials: true,
 };
