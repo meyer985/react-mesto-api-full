@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { regexp } = require("../utils/regexp");
+const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -10,7 +9,7 @@ const cardSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+    ref: 'user',
     required: true,
   },
   link: {
@@ -18,9 +17,9 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(e) {
-        return regexp.test(e);
+        return /https?:\/\/(www.)?[\w\\-_~:/?#@!$&'*,;=]+\.\w+/.test(e);
       },
-      message: "Введен некорректный URL",
+      message: 'Введен некорректный URL',
     },
   },
   likes: [
@@ -35,4 +34,4 @@ const cardSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("card", cardSchema);
+module.exports = mongoose.model('card', cardSchema);
