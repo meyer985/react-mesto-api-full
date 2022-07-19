@@ -4,5 +4,6 @@
 
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-- IP: 84.201.162.117
-- http://front15meyer985.nomoredomains.xyz/
+IP: 84.201.162.117
+URL: http://front15meyer985.nomoredomains.xyz/
+API URL: http://api.front15meyer985.nomoredomains.xyz/
